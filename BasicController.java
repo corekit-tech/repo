@@ -25,7 +25,7 @@ public class BasicController {
 
    @GetMapping("/subtract")
    public ApiResult subtract(@RequestParam BigDecimal minuent, @RequestParam BigDecimal subtrahend) {
-      return getResult(minuent.subtract(subtrahend));
+      return (minuent.subtract(subtrahend));
    }
 
    @GetMapping("/multiply")
@@ -36,7 +36,7 @@ public class BasicController {
    @GetMapping("/divide")
    public ApiResult divide(@RequestParam BigDecimal dividend, @RequestParam BigDecimal divisor) {
       if (divisor.equals(BigDecimal.ZERO)) {
-         return getResultFromError("no division by null");
+         return ("no division by null");
       }
       return getResult(dividend.divide(divisor, RoundingMode.HALF_EVEN));
    }
